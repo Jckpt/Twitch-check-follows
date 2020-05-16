@@ -1,0 +1,240 @@
+body {
+	background-color: #232323;
+	color: black;
+	margin: 0 !important;
+	font-family: 'Lato', sans-serif;
+	max-width: 100%;
+	overflow-x: hidden;
+}
+#wrapper {
+	width: 100vw;
+	background-color: #3b3b3b;
+}
+.user-info {
+	float: left;
+	--main-width: (76vw - 30px);
+	width: calc(var(--main-width) / 3);
+	margin-left: 1vw;
+	margin-bottom: 1vh;
+	background-color: #5d5d5d;
+	border-radius: 35px;
+	height: 70px;
+}
+.user-info:nth(3n) {
+	margin-right: 1vw;
+}
+header {
+	color: white;
+	width: 100vw;
+	height: 10vh;
+	background-color: #6441a5;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 3rem;
+	padding-top: 2.5vh;
+	text-align: center;
+	position: relative;
+	vertical-align: top;
+}
+#ttv_logo > img {
+	border-radius: 0;
+	width: 40px;
+	height: 40px;
+	display: static;
+}
+main {
+	width: 80vw;
+	min-height: calc(100vh - 10vh - 70px);
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #3f3f3f;
+	overflow: hidden;
+	padding-top: 10vh;
+}
+#inputs {
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 100px;
+}
+footer {
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #6441a5;
+	height: 70px;
+	width: 100vw;
+	overflow: hidden;
+	position: relative;
+}
+#dev_awatar {
+	width: 70px;
+	height: 70px;
+	position: absolute;
+}
+
+#informator {
+	width: 100vw;
+	height: 4vh;
+	color: white;
+	padding-left: 100px;
+	padding-bottom: 2vh;
+}
+.asd {
+	position: relative;
+	text-align: center;
+	vertical-align: top;
+	display: inline;
+	font-size: 1.5rem;
+	color: white;
+	padding-left: calc(var(--main-width) /64);
+	line-height: 70px;
+}
+img {
+	border-radius: 50%;
+}
+* {
+	box-sizing: border-box;
+}
+
+.container {
+	font-family: 'Lato', sans-serif;
+	width: 600px;
+	margin: 30px auto 0;
+	display: block;
+	background: #3f3f3f;
+	padding: 10px 50px 50px;
+}
+h2 {
+	text-align: center;
+	margin-bottom: 50px;
+}
+h2 small {
+	font-weight: normal;
+	color: #6441a5;
+	display: block;
+}
+.footer {
+	text-align: center;
+}
+.footer a {
+	color: #6441a5;
+}
+
+/* form starting stylings ------------------------------- */
+.group {
+	position: relative;
+	margin-bottom: 45px;
+}
+input {
+	font-size: 18px;
+	padding: 10px 10px 10px 5px;
+	display: block;
+	width: 300px;
+	border: none;
+	border-bottom: 1px solid #6441a5;
+	background-color: #3f3f3f;
+	color: white;
+}
+input:focus {
+	outline: none;
+}
+
+/* LABEL ======================================= */
+label {
+	color: #fff;
+	font-size: 18px;
+	font-weight: normal;
+	position: absolute;
+	pointer-events: none;
+	left: 5px;
+	top: 10px;
+	transition: 0.2s ease all;
+	-moz-transition: 0.2s ease all;
+	-webkit-transition: 0.2s ease all;
+}
+
+/* active state */
+input:focus ~ label,
+input:valid ~ label {
+	top: -20px;
+	font-size: 14px;
+	color: #ffffff;
+}
+
+/* BOTTOM BARS ================================= */
+.bar {
+	position: relative;
+	display: block;
+	width: 300px;
+}
+.bar:before,
+.bar:after {
+	content: '';
+	height: 2px;
+	width: 0;
+	bottom: 1px;
+	position: absolute;
+	background: #6441a5;
+	transition: 0.2s ease all;
+	-moz-transition: 0.2s ease all;
+	-webkit-transition: 0.2s ease all;
+}
+.bar:before {
+	left: 50%;
+}
+.bar:after {
+	right: 50%;
+}
+
+/* active state */
+input:focus ~ .bar:before,
+input:focus ~ .bar:after {
+	width: 50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+	position: absolute;
+	height: 60%;
+	width: 100px;
+	top: 25%;
+	left: 0;
+	pointer-events: none;
+	opacity: 0.5;
+}
+
+/* active state */
+input:focus ~ .highlight {
+	-webkit-animation: inputHighlighter 0.3s ease;
+	-moz-animation: inputHighlighter 0.3s ease;
+	animation: inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+	from {
+		background: #6441a5;
+	}
+	to {
+		width: 0;
+		background: transparent;
+	}
+}
+@-moz-keyframes inputHighlighter {
+	from {
+		background: #6441a5;
+	}
+	to {
+		width: 0;
+		background: transparent;
+	}
+}
+@keyframes inputHighlighter {
+	from {
+		background: #6441a5;
+	}
+	to {
+		width: 0;
+		background: transparent;
+	}
+}
