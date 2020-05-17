@@ -1,10 +1,11 @@
 body {
 	background-color: #232323;
-	color: black;
+	color: white;
 	margin: 0 !important;
 	font-family: 'Lato', sans-serif;
 	max-width: 100%;
 	overflow-x: hidden;
+	font-size: 1.5rem;
 }
 #wrapper {
 	width: 100vw;
@@ -46,6 +47,9 @@ header {
 	height: 40px;
 	display: static;
 }
+footer img{
+	border-radius: 0;
+}
 main {
 	width: 80vw;
 	min-height: calc(100vh - 10vh - 70px);
@@ -60,27 +64,41 @@ main {
 	margin-right: auto;
 	padding-left: 100px;
 }
+#checkbox_avatar
+{
+	display: inline-block;
+	width: 20px;
+}
 footer {
 	margin-left: auto;
 	margin-right: auto;
 	background-color: #6441a5;
 	height: 70px;
 	width: 100vw;
+	float: left;
+	font-size: 3rem;
 	overflow: hidden;
+}
+#nienawidzecss
+{
 	position: relative;
+	bottom: 10px;
 }
 #dev_awatar {
 	width: 70px;
 	height: 70px;
 	position: absolute;
+	display:block;
+	float: left;
 }
 
 #informator {
 	width: 100vw;
-	height: 4vh;
+	height: 10vh;
 	color: white;
-	padding-left: 100px;
+	padding-right: 20vw;
 	padding-bottom: 2vh;
+	text-align: center;
 }
 .asd {
 	position: relative;
@@ -140,6 +158,10 @@ input {
 }
 input:focus {
 	outline: none;
+}
+
+#informator img{
+	border-radius: 0;
 }
 
 /* LABEL ======================================= */
@@ -241,3 +263,5 @@ input:focus ~ .highlight {
 		background: transparent;
 	}
 }
+
+
