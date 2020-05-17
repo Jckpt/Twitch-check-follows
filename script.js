@@ -61,7 +61,7 @@ function findID(name) {
 
 function insertChannelHTML(id, name, avatar) {
 	let wanted_channel = document.getElementById('wanted_channel').value;
-	avatar = avatar.replace(/300x300/, '70x70');
+	avatar = avatar.replace(/300x300/, '70x70'); // zmiana wielkosci awataru na mniejszy
 	fetch('https://api.twitch.tv/kraken/users/' + id + '/follows/channels', {
 		headers: {
 			Accept: 'application/vnd.twitchtv.v5+json',
@@ -81,8 +81,13 @@ function insertChannelHTML(id, name, avatar) {
 						'"><div class="asd">' +
 						name +
 						'</div></div>';
+					if (result.follows.length == 1) {
+						$('#informator').html(
+							'<img src="https://static-cdn.jtvnw.net/emoticons/v1/2113050/1.0"> praca zakończona'
+						);
+					}
 				}
 			}
 		});
-	$('#informator').html('<img src="https://static-cdn.jtvnw.net/emoticons/v1/2113050/1.0"> praca została zakończona');
+	$('#informator').html('<img src="https://static-cdn.jtvnw.net/emoticons/v1/2113050/1.0"> przetwarzanie danych');
 }

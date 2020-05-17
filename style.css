@@ -20,8 +20,11 @@ body {
 	border-radius: 35px;
 	height: 70px;
 }
-.user-info:nth(3n) {
+.user-info:nth-child(3n) {
 	margin-right: 1vw;
+}
+.user-info:nth-child(1n) {
+	margin-left: 1vw;
 }
 header {
 	color: white;
