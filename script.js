@@ -86,7 +86,7 @@ function insertChannelHTML(id, name, avatar) {
 	})
 		.then((response) => response.json())
 		.then((result) => {
-			console.log(result); // result zawiera followy uzytkownika (result contains follows of user)
+			//console.log(result); // result zawiera followy uzytkownika (result contains follows of user)
 			for (var i = 0; i < result.follows.length; i++) {
 				if (result.follows[i].channel.name === wanted_channel) {
 					days = calculate_date(result.follows[i].created_at);
