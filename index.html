@@ -9,21 +9,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="https://static-cdn.jtvnw.net/emoticons/v1/244/1.0">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+    integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
   <title>Rewizja Twitch chatu</title>
-  <script>
-    // usuwanie znaku wodnego z darmowego hostingu xD
-    $(document).ready(function () {
-      $('a[title="Hosted on free web hosting 000webhost.com. Host your own website for FREE."]').hide();
-    });
-  </script>
 </head>
 
 <body>
 
   <div id="wrapper">
-    <header>Rewizja <span id="ttv_logo"><img src="images/twitch_logo.png"></span> czatu <span
-        style="font-size: 1.5rem;bottom: 15px; position: relative;">✋</span><img
-        src="https://static-cdn.jtvnw.net/emoticons/v1/244/2.0"></header>
+    <header>Rewizja <span id="ttv_logo"><img src="images/twitch_logo.png"></span> czatu</header>
     <main>
       <div id="inputs">
         <div class="group">
@@ -39,20 +34,17 @@
           <label>Follow u</label>
         </div>
         <input type="checkbox" id="checkbox_avatar" checked> awatary
-
       </div>
-      <div id="informator"><img src="https://static-cdn.jtvnw.net/emoticons/v1/2113050/2.0"> Nie polecam odpalać na
-        czacie 10k+, bo 🔥 ale nadal działa</div>
+      <div id="informator"></div>
       <div id="app_output"></div>
     </main>
     <footer>
       <a href="https://www.twitch.tv/krawcu_"><img
           src="https://static-cdn.jtvnw.net/jtv_user_pictures/eac721cd-765c-4dad-b93e-71b663c144fa-profile_image-70x70.png"></a>
-      <span id="nienawidzecss">zrobione przez: krawcu_</span>
+      <span id="nienawidzecss">@krawcu_ <img src="https://static-cdn.jtvnw.net/emoticons/v1/88/1.0"></span>
     </footer>
   </div>
   <script src="script.js"></script>
-
 </body>
 
 </html>
