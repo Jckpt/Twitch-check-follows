@@ -1,4 +1,7 @@
 const input = document.querySelectorAll('input');
+let all_nicks = [];
+let count = 0;
+let nick_json = '';
 // fetchuje liste uzytkownikow aktualnie zalogowanych na czacie (fetches users that are currently connected to chat)
 function activate() {
 	$('#informator').html('<img src="https://cdn.frankerfacez.com/emoticon/149346/2"> praca praca..');
@@ -6,7 +9,7 @@ function activate() {
 	let proxyUrl = 'https://cors-anywhere.herokuapp.com/',
 		targetUrl = 'https://tmi.twitch.tv/group/user/' + channel_name + '/chatters';
 	fetch(proxyUrl + targetUrl).then((blob) => blob.json()).then((data) => {
-		console.table(data);
+		//console.table(data);
 		for (var j = 0; j < data.chatters.viewers.length; j++) {
 			var name = data.chatters.viewers[j];
 			findID(name.toLowerCase());
@@ -23,6 +26,17 @@ function calculate_date(follow_date) {
 	return diff;
 }
 
+function createJSON(user_nick) {
+	var user_nick, raw_json;
+	all_nicks.push(user_nick);
+	console.log(all_nicks);
+	nick_json += '{"nick":"' + all_nicks[count] + '"},';
+	raw_json = '{"users":[' + nick_json + ']}';
+	raw_json = raw_json.replace(/},]/, "}]");
+	count++;
+	return raw_json;
+}
+
 input[0].onkeyup = (event) => {
 	if (event.which == 13) {
 		if (input[0].value == '' || input[1].value == '') {
@@ -32,7 +46,12 @@ input[0].onkeyup = (event) => {
 			if ($('.user-info')[0]) {
 				$('div.user-info').remove();
 				activate();
-			} else {
+			}
+			else if ($('#json_output')) {
+				$('#json_output').remove();
+				activate();
+			}
+			else {
 				activate();
 			}
 		}
@@ -47,7 +66,12 @@ input[1].onkeyup = (event) => {
 			if ($('.user-info')[0]) {
 				$('div.user-info').remove();
 				activate();
-			} else {
+			}
+			else if ($('#json_output')) {
+				$('#json_output').remove();
+				activate();
+			}
+			else {
 				activate();
 			}
 		}
@@ -64,7 +88,7 @@ function findID(name) {
 		.then((response) => response.json())
 		.then((result) => {
 			// console.log(result); // result zawiera informacje o uzytkowniku (result contains info about user)
-			if ($('#checkbox_avatar').prop('checked')) {
+			if ($('#checkbox_json').prop('checked') == false) {
 				insertChannelHTML(result.users[0]._id, name, result.users[0].logo);
 			}
 			else {
@@ -73,9 +97,10 @@ function findID(name) {
 		});
 }
 
-function insertChannelHTML(id, name, avatar) {
+function insertChannelHTML(id, user_nick, avatar) {
 	let wanted_channel = document.getElementById('wanted_channel').value;
-	if ($('#checkbox_avatar').prop('checked')) {
+	let raw_json;
+	if ($('#checkbox_json').prop('checked') == false) {
 		avatar = avatar.replace(/300x300/, '70x70'); // zmiana wielkosci awataru na mniejszy (changes size of avatars in URL)
 	}
 	fetch('https://api.twitch.tv/kraken/users/' + id + '/follows/channels', {
@@ -90,23 +115,24 @@ function insertChannelHTML(id, name, avatar) {
 			for (var i = 0; i < result.follows.length; i++) {
 				if (result.follows[i].channel.name === wanted_channel) {
 					days = calculate_date(result.follows[i].created_at);
-					if ($('#checkbox_avatar').prop('checked')) {
+					if ($('#checkbox_json').prop('checked') == false) {
 						document.getElementById('app_output').innerHTML +=
 							'<div class="user-info">' +
 							'<img class="avatar-image" src="' +
 							avatar +
 							'" title="' + days + ' dni"><div class="asd">' +
-							name +
+							user_nick +
 							'</div></div>';
 					}
 					else {
-						document.getElementById('app_output').innerHTML +=
-							'<div class="user-info"> <div class="asd">' + name + ' ' + days + ' dni' + '</div></div>';
+						raw_json = createJSON(user_nick);
+						$('#app_output').html('<div id="json_output">' + raw_json + '</div>');
 					}
 					$(function () {
 						$(document).tooltip();
 					});
 					$('#informator').html('');
+					break;
 				}
 			}
 		});
