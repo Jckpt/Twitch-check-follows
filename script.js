@@ -11,8 +11,8 @@ let activate = () => {
   fetch(proxyUrl + targetUrl)
     .then((blob) => blob.json())
     .then((data) => {
-      for (var j = 0; j < data.chatters.viewers.length; j++) {
-        var name = data.chatters.viewers[j];
+      for (let j = 0; j < data.chatters.viewers.length; j++) {
+        let name = data.chatters.viewers[j];
         findID(name.toLowerCase());
       }
     });
@@ -21,14 +21,14 @@ let activate = () => {
 let calculate_date = (follow_date) => {
   follow_date = follow_date.substring(0, 10);
   follow_date = new Date(follow_date);
-  var d = new Date();
-  var diff = new Date(d - Date.parse(follow_date)) / 86400000;
+  let d = new Date();
+  let diff = new Date(d - Date.parse(follow_date)) / 86400000;
   diff = Math.trunc(diff);
   return diff;
 }
 
 let createJSON = (user_nick) => {
-  var user_nick, raw_json;
+  let raw_json;
   all_nicks.push(user_nick);
   nick_json += '{"nick":"' + all_nicks[count] + '"},';
   raw_json = '{"users":[' + nick_json + "]}";
@@ -104,7 +104,7 @@ let insertChannelHTML = (id, user_nick, avatar) => {
     .then((response) => response.json())
     .then(({ follows }) => {
       // result zawiera followy uzytkownika (result contains follows of user)
-      for (var i = 0; i < follows.length; i++) {
+      for (let i = 0; i < follows.length; i++) {
         if (follows[i].channel.name === wanted_channel) {
           days = calculate_date(follows[i].created_at);
           if (!$("#checkbox_json").prop("checked")) {
