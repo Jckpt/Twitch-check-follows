@@ -3,7 +3,7 @@ let all_nicks = [];
 let count = 0;
 let nick_json = "";
 // fetchuje liste uzytkownikow aktualnie zalogowanych na czacie (fetches users that are currently connected to chat)
-function activate() {
+let activate = () => {
   $("#informator").html('<img src="https://cdn.frankerfacez.com/emoticon/149346/2"> praca praca..');
   let channel_name = document.getElementById("chat").value.toLowerCase();
   let proxyUrl = "https://cors-anywhere.herokuapp.com/",
@@ -18,7 +18,7 @@ function activate() {
     });
 }
 
-function calculate_date(follow_date) {
+let calculate_date = (follow_date) => {
   follow_date = follow_date.substring(0, 10);
   follow_date = new Date(follow_date);
   var d = new Date();
@@ -27,7 +27,7 @@ function calculate_date(follow_date) {
   return diff;
 }
 
-function createJSON(user_nick) {
+let createJSON = (user_nick) => {
   var user_nick, raw_json;
   all_nicks.push(user_nick);
   nick_json += '{"nick":"' + all_nicks[count] + '"},';
@@ -72,7 +72,7 @@ input[1].onkeyup = (event) => {
   }
 };
 // szuka id uzytkownika po nicku (searches user ID by their nick)
-function findID(name) {
+let findID = (name) => {
   fetch(`https://api.twitch.tv/kraken/users?login=${name}`, {
     headers: {
       Accept: "application/vnd.twitchtv.v5+json",
@@ -89,7 +89,7 @@ function findID(name) {
     });
 }
 
-function insertChannelHTML(id, user_nick, avatar) {
+let insertChannelHTML = (id, user_nick, avatar) => {
   let wanted_channel = document.getElementById("wanted_channel").value.toLowerCase();
   let raw_json;
   if (!$("#checkbox_json").prop("checked")) {
@@ -115,7 +115,7 @@ function insertChannelHTML(id, user_nick, avatar) {
             raw_json = createJSON(user_nick);
             document.getElementById("app_output").innerHTML = `<div id="json_output">${raw_json}</div>`;
           }
-          $(function () {
+          $(() => {
             $(document).tooltip();
           });
           $("#informator").html("");

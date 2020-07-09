@@ -20,6 +20,7 @@ body {
   background-color: #5d5d5d;
   border-radius: 35px;
   height: 70px;
+  text-transform: capitalize;
 }
 .user-info:nth-child(3n) {
   margin-right: 1vw;
