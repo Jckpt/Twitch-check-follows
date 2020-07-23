@@ -115,9 +115,6 @@ let insertChannelHTML = (id, user_nick, avatar) => {
             raw_json = createJSON(user_nick);
             document.getElementById('app_output').innerHTML = `<div id="json_output">${raw_json}</div>`;
           }
-          $(() => {
-            $(document).tooltip();
-          });
           $('#informator').html('');
           break;
         }

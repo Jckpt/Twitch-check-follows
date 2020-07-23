@@ -7,43 +7,42 @@
     <script src="https://embed.twitch.tv/embed/v1.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="https://static-cdn.jtvnw.net/emoticons/v1/244/1.0" />
-    <title>Rewizja Twitch chatu</title>
+    <link rel="icon" href="images/favicon.png" />
+    <title>Rewizja Twitch czatu</title>
   </head>
 
   <body>
-    <div id="wrapper">
-      <header>
-        <div class="tytul">Rewizja</div>
-        <div id="ttv_logo"><img src="images/twitch_logo.png" /></div>
-        <div class="tytul">czatu</div>
-      </header>
-      <main>
-        <div id="inputs">
-          <div class="group">
-            <input type="text" id="chat" required />
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label>Czat użytkownika</label>
-          </div>
-          <div class="group">
-            <input type="text" id="wanted_channel" required />
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label>Follow u</label>
-          </div>
-          <div><input type="checkbox" id="checkbox_json" /> tylko .json</div>
+    <header>
+      <div class="tytul">Rewizja</div>
+      <div id="ttv_logo"><img src="images/twitch_logo.png" /></div>
+      <div class="tytul">czatu</div>
+    </header>
+    <main>
+      <div id="inputs">
+        <div class="group">
+          <input type="text" id="chat" required />
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Czat użytkownika</label>
         </div>
+        <div class="group">
+          <input type="text" id="wanted_channel" required />
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Follow u</label>
+        </div>
+        <div id="checkB"><input type="checkbox" id="checkbox_json" />tylko .json</div>
         <div id="informator"></div>
-        <div id="app_output"></div>
-      </main>
-      <footer>
-        <div>
-          <a href="https://www.twitch.tv/krawcu_"><img src="https://static-cdn.jtvnw.net/jtv_user_pictures/eac721cd-765c-4dad-b93e-71b663c144fa-profile_image-70x70.png" /></a>
-        </div>
-        <div>@krawcu_</div>
-      </footer>
-    </div>
+      </div>
+
+      <div id="app_output"></div>
+    </main>
+    <footer>
+      <div>
+        <a href="https://www.twitch.tv/krawcu_"><img src="https://static-cdn.jtvnw.net/jtv_user_pictures/eac721cd-765c-4dad-b93e-71b663c144fa-profile_image-70x70.png" /></a>
+      </div>
+      <div>@krawcu_</div>
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>

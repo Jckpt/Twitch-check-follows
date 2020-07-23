@@ -1,15 +1,11 @@
 body {
-  background-color: #232323;
+  background-color: #3b3b3b;
   color: white;
   margin: 0 !important;
   font-family: 'Lato', sans-serif;
-  max-width: 100%;
+  height: 100vh;
   overflow-x: hidden;
   font-size: 1.5rem;
-}
-#wrapper {
-  width: 100vw;
-  background-color: #3b3b3b;
   display: flex;
   flex-direction: column;
 }
@@ -17,12 +13,8 @@ body {
   display: flex;
   flex: 100%;
   background-color: #5d5d5d;
-  border-radius: 35px;
   height: 70px;
-  margin-right: 0.5%;
-  margin-left: 0.5%;
-  margin-top: 0.5vh;
-  margin-bottom: 0.5vh;
+  margin: 0 0.5% 1vh;
   text-transform: capitalize;
 }
 @media only screen and (min-width: 768px) {
@@ -40,34 +32,30 @@ body {
 header {
   color: white;
   width: 100vw;
-  height: 10vh;
-  min-height: 90px;
   background-color: #6441a5;
   display: flex;
   align-items: baseline;
   justify-content: center;
   font-size: 3rem;
-  padding-top: 2.5vh;
-  vertical-align: top;
+  padding: 2.5vh 0;
 }
 #ttv_logo > img {
-  border-radius: 0;
   width: 40px;
   height: 40px;
   margin-left: 10px;
   margin-right: 10px;
 }
 footer img {
-  border-radius: 0;
+  flex-shrink: 0;
 }
 main {
   width: 80vw;
-  min-height: calc(100vh - 10vh - 70px);
   margin-left: auto;
   margin-right: auto;
   background-color: #3f3f3f;
   overflow: hidden;
   padding-top: 10vh;
+  flex: 1 0 auto;
 }
 
 #app_output {
@@ -89,12 +77,16 @@ main {
   align-items: center;
 }
 #checkbox_json {
-  display: inline-block;
   width: 20px;
+}
+#checkB {
+  display: flex;
+  position: relative;
+  right: 80px;
 }
 footer {
   background-color: #6441a5;
-  height: 70px;
+  min-height: 70px;
   width: 100vw;
   display: flex;
   align-items: center;
@@ -102,12 +94,9 @@ footer {
 }
 
 #informator {
-  width: 100vw;
   height: 10vh;
   color: white;
-  padding-right: 20vw;
-  padding-bottom: 2vh;
-  text-align: center;
+  padding: 3vh 0;
 }
 .asd {
   margin-left: 1vw;
@@ -117,12 +106,6 @@ footer {
   width: 100%;
   color: white;
 }
-img {
-  border-radius: 50%;
-}
-* {
-  box-sizing: border-box;
-}
 
 .container {
   font-family: 'Lato', sans-serif;
@@ -131,15 +114,6 @@ img {
   display: block;
   background: #3f3f3f;
   padding: 10px 50px 50px;
-}
-h2 {
-  text-align: center;
-  margin-bottom: 50px;
-}
-h2 small {
-  font-weight: normal;
-  color: #6441a5;
-  display: block;
 }
 
 /* form starting stylings ------------------------------- */
@@ -159,10 +133,6 @@ input {
 }
 input:focus {
   outline: none;
-}
-
-#informator img {
-  border-radius: 0;
 }
 
 /* LABEL ======================================= */
