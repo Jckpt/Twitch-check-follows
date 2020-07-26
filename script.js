@@ -1,4 +1,3 @@
-const input = document.querySelectorAll('input');
 let all_nicks = [];
 let count = 0;
 let nick_json = '';
@@ -10,10 +9,10 @@ let activate = () => {
     targetUrl = `https://tmi.twitch.tv/group/user/${channel_name}/chatters`;
   fetch(proxyUrl + targetUrl)
     .then((blob) => blob.json())
-    .then((data) => {
-      for (let j = 0; j < data.chatters.viewers.length; j++) {
-        let name = data.chatters.viewers[j];
-        findID(name.toLowerCase());
+    .then(({ chatters: { viewers }, chatters: { vips }, chatters: { moderators } }) => {
+      const everyViewer = [...viewers, ...vips, ...moderators];
+      for (let j = 0; j < everyViewer.length; j++) {
+        findID(everyViewer[j].toLowerCase());
       }
     });
 };
@@ -36,41 +35,25 @@ let createJSON = (user_nick) => {
   count++;
   return raw_json;
 };
-
-input[0].onkeyup = (event) => {
-  if (event.which == 13) {
-    if (input[0].value == '' || input[1].value == '') {
-      $('#informator').html('<img src="https://cdn.frankerfacez.com/emoticon/149346/2"> jedno z pól jest puste');
-    } else {
-      if ($('.user-info')[0]) {
-        $('div.user-info').remove();
-        activate();
-      } else if ($('#json_output')) {
-        $('#json_output').remove();
-        activate();
+document.querySelectorAll('input').forEach((item) => {
+  item.addEventListener('keyup', (event) => {
+    if (event.which == 13) {
+      if (input[0].value == '' || input[1].value == '') {
+        $('#informator').html('<img src="https://cdn.frankerfacez.com/emoticon/149346/2"> jedno z pól jest puste');
       } else {
-        activate();
+        if ($('.user-info')[0]) {
+          $('div.user-info').remove();
+          activate();
+        } else if ($('#json_output')) {
+          $('#json_output').remove();
+          activate();
+        } else {
+          activate();
+        }
       }
     }
-  }
-};
-input[1].onkeyup = (event) => {
-  if (event.which == 13) {
-    if (input[0].value == '' || input[1].value == '') {
-      $('#informator').html('<img src="https://cdn.frankerfacez.com/emoticon/149346/2"> jedno z pól jest puste');
-    } else {
-      if ($('.user-info')[0]) {
-        $('div.user-info').remove();
-        activate();
-      } else if ($('#json_output')) {
-        $('#json_output').remove();
-        activate();
-      } else {
-        activate();
-      }
-    }
-  }
-};
+  });
+});
 // szuka id uzytkownika po nicku (searches user ID by their nick)
 let findID = (name) => {
   fetch(`https://api.twitch.tv/kraken/users?login=${name}`, {
