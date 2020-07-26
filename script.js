@@ -38,7 +38,7 @@ let createJSON = (user_nick) => {
 document.querySelectorAll('input').forEach((item) => {
   item.addEventListener('keyup', (event) => {
     if (event.which == 13) {
-      if (input[0].value == '' || input[1].value == '') {
+      if (document.querySelectorAll('input')[0].value == '' || document.querySelectorAll('input')[1].value == '') {
         $('#informator').html('<img src="https://cdn.frankerfacez.com/emoticon/149346/2"> jedno z pól jest puste');
       } else {
         if ($('.user-info')[0]) {
