@@ -17,18 +17,7 @@ body {
   margin: 0 0.5% 1vh;
   text-transform: capitalize;
 }
-@media only screen and (min-width: 768px) {
-  /* For mobile phones: */
-  .user-info {
-    flex: 48%;
-  }
-}
-@media only screen and (min-width: 1420px) {
-  /* For mobile phones: */
-  .user-info {
-    flex: 32%;
-  }
-}
+
 header {
   color: white;
   width: 100vw;
@@ -49,7 +38,7 @@ footer img {
   flex-shrink: 0;
 }
 main {
-  width: 80vw;
+  width: 100vw;
   margin-left: auto;
   margin-right: auto;
   background-color: #3f3f3f;
@@ -232,5 +221,21 @@ input:focus ~ .highlight {
   to {
     width: 0;
     background: transparent;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .user-info {
+    flex: 48%;
+  }
+  main {
+    width: 80vw;
+  }
+}
+@media only screen and (min-width: 1420px) {
+  .user-info {
+    flex: 32%;
+  }
+  main {
+    width: 80vw;
   }
 }
