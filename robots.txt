@@ -1,5 +1,2 @@
 User-agent: *
-Disallow: /images/
-Disallow: /script.js
-Disallow: /style.css
 Allow: /index.html

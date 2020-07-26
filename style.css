@@ -17,12 +17,19 @@ body {
   margin: 0 0.5% 1vh;
   text-transform: capitalize;
 }
-
+h1,
+h2 {
+  font-size: 3rem;
+  padding: 0;
+  margin: 0;
+  font-weight: normal;
+}
 header {
   color: white;
   width: 100vw;
   background-color: #6441a5;
   display: flex;
+  flex-direction: row;
   align-items: baseline;
   justify-content: center;
   font-size: 3rem;
@@ -34,8 +41,12 @@ header {
   margin-left: 10px;
   margin-right: 10px;
 }
+footer h2 {
+  font-size: 1.5rem;
+}
 footer img {
   flex-shrink: 0;
+  vertical-align: bottom;
 }
 main {
   width: 100vw;
