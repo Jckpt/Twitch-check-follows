@@ -1,5 +1,7 @@
-body {
+html {
   background-color: #3b3b3b;
+}
+body {
   color: white;
   margin: 0 !important;
   font-family: 'Lato', sans-serif;
