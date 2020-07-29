@@ -19,6 +19,9 @@ body {
   margin: 0 0.5% 1vh;
   text-transform: capitalize;
 }
+.user-info:nth-child(3n + 2) {
+  margin: 0 0 1vh;
+}
 h1,
 h2 {
   font-size: 3rem;
